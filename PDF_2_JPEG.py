@@ -5,9 +5,8 @@ import os
 ###### Need to install poppler and pdf2image#####
 # https://pdf2image.readthedocs.io/en/latest/installation.html
 
-
 # Folder with PDFs
-pdf_dir = r"N:\projects\2021\215324C195314 APS Delano 10 Rebuild Arch & Bio Survey (1.BIO)\Biology\Graphics-GIS\Images"
+pdf_dir = r"N:\projects\2022\225317 ADOT SR88 Apache Trail DCR and EO\Environmental\Graphics-GIS\images"
 
 # If multipage PDF input: 1
 # If single page PDF input: 2
@@ -15,6 +14,9 @@ pdf_type = 2
 
 # JPEG Dots Per Inch (DPI)
 dpi = 300
+
+# Delete the old PDFs?
+Delete = True
 
 #############################################################################
 pdfs = glob(pdf_dir + "\*.pdf")
@@ -42,5 +44,6 @@ convert_pdf(pdf_type)
 #################################################################################
 
 # Remove unneeded PDFs
-for pdf in pdfs:
-    os.remove(pdf)
+if Delete:
+    for pdf in pdfs:
+        os.remove(pdf)
